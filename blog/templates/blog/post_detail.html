@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Canet's Blog</title>
 <meta charset="UTF-8">
+<title>Canet's Blog-{{ post.title }}</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -11,20 +11,15 @@
 </head>
 <body>
 
-	{% block content %} 
-	{% for post in posts %}
+	{% block content %}
 	<div class="post">
-		<div class="date">
-			<p>published : {{post.published_date}}</p>
-		</div>
-		<h2>
-			<a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
-		</h2>
-		<p>{{post.text|linebreaksbr}}</p>
-
+		{% if post.published_date %}
+		<div class="date">{{ post.published_date }}</div>
+		{% endif %}
+		<h1>{{ post.title }}</h1>
+		<p>{{ post.text|linebreaksbr }}</p>
 	</div>
-	{% endfor %} 
-	{% endblock content%}
+	{% endblock %}
 
 </body>
 </html>
