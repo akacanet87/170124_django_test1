@@ -82,11 +82,13 @@ DATABASES = {
     }
 }
 
+DATABASES_OPTIONS = {'charset':'utf8'}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'utf-8'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
